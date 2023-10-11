@@ -2,14 +2,15 @@
 % Classical Control
 % exercise 1 of lab1
 
+% MATLABのコマンドで、一度にすべての変数をクリアし、すべてのプロットウィンドウを閉じてコマンドウィンドウをクリア
 clear all, close all, clc
 
-disp('section 1.1')
-disp('')
+disp('section 2.1')
+disp('---------------------------------------------')
 
 k=1;
 
-% ----- 変更箇所 ----- %
+% ----- 変更箇所👇 ----- %
 a = 0.4237;
 
 wn1=1; wn2=2; wn3=5; wn4=10;
@@ -28,7 +29,7 @@ G2 = tf(num2, den2);
 G3 = tf(num3, den3);
 G4 = tf(num4, den4);
 
-% ----- 変更箇所 ----- 
+% ----- 変更箇所👆 ----- 
 
 %{
 ----- tf関数の説明-----
@@ -62,7 +63,10 @@ f1=figure(1);
 set(f1,'position',[1   462   504   343])
 subplot(211)
 step(G1,G2,G3,G4);
+
+% 各プロットに対応する制御システムを示す凡例を追加
 legend('G1','G2','G3','G4')
+
 subplot(212)
 pzmap(G1,G2,G3,G4)
 legend('G1','G2','G3','G4')
@@ -71,9 +75,28 @@ S1 = stepinfo(G1,'SettlingTimeThreshold',0.05);
 S2 = stepinfo(G2,'SettlingTimeThreshold',0.05);
 S3 = stepinfo(G3,'SettlingTimeThreshold',0.05);
 S4 = stepinfo(G4,'SettlingTimeThreshold',0.05);
-disp(['5% settling time of G1 (T1=1) :',num2str(S1.SettlingTime)])
-disp(['5% settling time of G2 (T2=5) :',num2str(S2.SettlingTime)])
-disp(['5% settling time of G3 (T3=10) :',num2str(S3.SettlingTime)])
-disp(['5% settling time of G4 (T4=50) :',num2str(S4.SettlingTime)])
+disp(['5% settling time of G1 (wn1=1) :',num2str(S1.SettlingTime)])
+disp(['5% settling time of G2 (wn2=5) :',num2str(S2.SettlingTime)])
+disp(['5% settling time of G3 (wn3=10) :',num2str(S3.SettlingTime)])
+disp(['5% settling time of G4 (wn4=50) :',num2str(S4.SettlingTime)])
+disp(' ')
+
+% ----- 変更箇所👇 ----- %
+
+% オーバーシュート：ステップ応答のピーク地と目標値の差
+%              　オーバーシュートがない場合，この値は０
+disp(['the percent overshoot of G1 (wn1=0.2) :',num2str(S1.Overshoot)])
+disp(['the percent overshoot of G2 (wn2=0.4237) :',num2str(S2.Overshoot)])
+disp(['the percent overshoot of G3 (wn3=0.707) :',num2str(S3.Overshoot)])
+disp(['the percent overshoot of G4 (wn4=1) :',num2str(S4.Overshoot)])
+disp(' ')
+
+% ピーク時間：ステップ応答が最初にピーク値に到達する時間
+disp(['the peak time of G1 (wn1=0.2) :',num2str(S1.PeakTime)])
+disp(['the peak time of G2 (wn2=0.4237) :',num2str(S2.PeakTime)])
+disp(['the peak time of G3 (wn3=0.707) :',num2str(S3.PeakTime)])
+disp(['the peak time of G4 (wn4=1) :',num2str(S4.PeakTime)])
+
+% ----- 変更箇所👆 ----- %
 
 %%
