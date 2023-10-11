@@ -1,2 +1,3 @@
-#matlab-CLACO
-##ECNのCLACO-Labの授業で作成したMATLABプログラムです．
+# matlab-CLACO
+
+## CLACOの実験で作成したMATLABのプログラムです．
