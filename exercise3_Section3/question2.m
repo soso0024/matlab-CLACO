@@ -5,7 +5,7 @@
 % MATLABのコマンドで、一度にすべての変数をクリアし、すべてのプロットウィンドウを閉じてコマンドウィンドウをクリア
 clear all, close all, clc
 
-disp('section 3.1')
+disp('section 3.2')
 disp('---------------------------------------------')
 
 num = 1;
@@ -18,7 +18,7 @@ c2 = -0.25;
 c3 = -0.1;
 c4 = 0.1;
 c5 = 0.25;
-c6 = -10;
+c6 = 10;
 
 cnum1 = [-1, c1];
 cden1 = [0.5*c1, 1.5*c1, c1];
@@ -41,12 +41,25 @@ Gc5 = tf(cnum5, cden5);
 Gc6 = tf(cnum6, cden6);
 
 f1=figure(1);
-set(f1,'position',[1    52   504   343])
+set(f1,'position',[1   462   504   343])
 subplot(111)
-%bode(G1,G2,G3,G4);
-bodemag(G, Gc1, Gc2, Gc3, Gc4, Gc5, Gc6);
+bode(G, Gc1, Gc2, Gc3, Gc4, Gc5, Gc6);
 legend('G', 'Gc1','Gc2','Gc3','Gc4', 'Gc5', 'Gc6')
 
+% ----- 👇ステップ応答の確認👇 ----- %
+figure(2);
+step(G, Gc1, Gc2, Gc3, Gc4, Gc5, Gc6, 6);
+legend('G', 'Gc1[c=-10]', 'Gc2[c=-0.25]', 'Gc3[c=-0.1]', 'Gc4[c=0.1]', 'Gc5[c=0.25]', 'Gc6[c=10]');
+
+S_G = stepinfo(G)
+S_Gc1 = stepinfo(Gc1)
+S_Gc2 = stepinfo(Gc2)
+S_Gc3 = stepinfo(Gc3)
+S_Gc4 = stepinfo(Gc4)
+S_Gc5 = stepinfo(Gc5)
+S_Gc6 = stepinfo(Gc6)
+
+% ----- 👆ステップ応答の確認👆 ----- %
 
 %{
 ----- 👇set関数の説明👇 -----
