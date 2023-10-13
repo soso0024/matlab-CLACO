@@ -55,15 +55,12 @@ legend('G(c)', 'Gc(s)[c=-10]', 'Gc(s)[c=-0.25]', 'Gc(s)[c=-0.1]', 'Gc(s)[c=0.1]'
 title('Bode Plot of G and Compensators');
 
 % グラフの線種と色を調整
-set(findall(gcf,'Type','line'),'Linewidth',1.5);  % 線の太さを整調
+% set(findall(gcf,'Type','line'),'Linewidth',1.5);  % 線の太さを整調
 
 % ----- 👇ステップ応答の確認👇 ----- %
 figure(2);
 step(G, Gc1, Gc2, Gc3, Gc4, Gc5, Gc6, 6);
 legend('G(c)', 'Gc(s)[c=-10]', 'Gc(s)[c=-0.25]', 'Gc(s)[c=-0.1]', 'Gc(s)[c=0.1]', 'Gc(s)[c=0.25]', 'Gc(s)[c=10]')
-
-% グラフの線種と色を調整
-set(findall(gcf,'Type','line'),'Linewidth',1.5);  % 線の太さを整調
 
 S_G = stepinfo(G)
 S_Gc1 = stepinfo(Gc1)
