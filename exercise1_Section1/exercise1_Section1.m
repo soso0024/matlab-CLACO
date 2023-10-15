@@ -86,7 +86,8 @@ G4=tf(k,[T4 1]);
 f3=figure(3);
 set(f3,'position',[1    52   504   343])
 subplot(121)
-%bode(G1,G2,G3,G4);
+bode(G1,G2,G3,G4);
+%bodemag(G1);
 bodemag(G1,G2,G3,G4);
 legend('G1','G2','G3','G4')
 subplot(122)

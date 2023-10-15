@@ -44,7 +44,7 @@ f1=figure(1);
 set(f1,'position',[1   462   504   343])
 subplot(111)
 
-% 位相リミットを0度から開始する
+% 位相リミットを0度から開始する（位相を合わせる）
 opts = bodeoptions;
 opts.PhaseMatching = 'on';
 

@@ -42,12 +42,13 @@ Gc6 = tf(cnum6, cden6);
 
 f1=figure(1);
 set(f1,'position',[1   462   504   343])
-subplot(211)
+plot(111)
 
 % 最後の6がdurationの長さを決めてる
 step(G, Gc1, Gc2, Gc3, Gc4, Gc5, Gc6, 6);
 legend('G(c)', 'Gc(s)[c=-10]', 'Gc(s)[c=-0.25]', 'Gc(s)[c=-0.1]', 'Gc(s)[c=0.1]', 'Gc(s)[c=0.25]', 'Gc(s)[c=10]')
-subplot(212)
+f2=figure(2);
+plot(111)
 pzmap(G,Gc1, Gc2, Gc3, Gc4, Gc5, Gc6);
 legend('G(c)', 'Gc(s)[c=-10]', 'Gc(s)[c=-0.25]', 'Gc(s)[c=-0.1]', 'Gc(s)[c=0.1]', 'Gc(s)[c=0.25]', 'Gc(s)[c=10]')
 
