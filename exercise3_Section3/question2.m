@@ -48,7 +48,8 @@ subplot(111)
 opts = bodeoptions;
 opts.PhaseMatching = 'on';
 
-bode(G, Gc1, Gc2, Gc3, Gc4, Gc5, Gc6, opts);
+% bode(G, Gc1, Gc2, Gc3, Gc4, Gc5, Gc6, opts);
+bode(G,'b',Gc1, 'rx', Gc2, 'gx', Gc3,'cx', Gc4,'c',Gc5,'g',Gc6,'r', opts);
 legend('G(c)', 'Gc(s)[c=-10]', 'Gc(s)[c=-0.25]', 'Gc(s)[c=-0.1]', 'Gc(s)[c=0.1]', 'Gc(s)[c=0.25]', 'Gc(s)[c=10]')
 
 % グラフのタイトルを追加
