@@ -46,11 +46,19 @@ plot(111)
 
 % 最後の6がdurationの長さを決めてる
 step(G, Gc1, Gc2, Gc3, Gc4, Gc5, Gc6, 6);
+% step(G,'b',Gc1, 'rx', Gc2, 'gx', Gc3,'cx', Gc4,'c',Gc5,'g',Gc6,'r', 6);
 legend('G(c)', 'Gc(s)[c=-10]', 'Gc(s)[c=-0.25]', 'Gc(s)[c=-0.1]', 'Gc(s)[c=0.1]', 'Gc(s)[c=0.25]', 'Gc(s)[c=10]')
+
+% グラフの線種と色を調整
+set(findall(gcf,'Type','line'),'Linewidth',1.5);  % 線の太さを整調
+
 f2=figure(2);
 plot(111)
 pzmap(G,Gc1, Gc2, Gc3, Gc4, Gc5, Gc6);
 legend('G(c)', 'Gc(s)[c=-10]', 'Gc(s)[c=-0.25]', 'Gc(s)[c=-0.1]', 'Gc(s)[c=0.1]', 'Gc(s)[c=0.25]', 'Gc(s)[c=10]')
+
+% グラフの線種と色を調整
+set(findall(gcf,'Type','line'),'Linewidth',1.5);  % 線の太さを整調
 
 S  = stepinfo(G);
 S1 = stepinfo(Gc1);
